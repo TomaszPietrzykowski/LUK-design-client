@@ -1,28 +1,33 @@
-import React from "react";
-import logo from "./assets/CMYK/Logotyp_White.png";
-import "./App.css";
+import React, { useState } from "react";
+import { ThemeProvider } from "@material-ui/styles";
+import theme from "./components/ui/Theme";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import ScrollToTop from "./components/ui/ScrollToTop";
+import Header from "./components/ui/Header";
+import Home from "./components/pages/Home";
 
 function App() {
+  const [value, setValue] = useState(0);
+
   return (
-    <div className="App">
-      <div style={logoContainer}>
-        <img src={logo} alt="logo" style={imgStyle} />
-      </div>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <ScrollToTop>
+          <Header value={value} setValue={setValue} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/shop" component={() => <div>Shop</div>} />
+            <Route exact path="/offer" component={() => <div>Offer</div>} />
+            <Route exact path="/gallery" component={() => <div>Gallery</div>} />
+            <Route exact path="/about" component={() => <div>About</div>} />
+            <Route exact path="/contact" component={() => <div>Contact</div>} />
+          </Switch>
+          {/* <Footer setValue={setValue} /> */}
+        </ScrollToTop>
+      </Router>
+    </ThemeProvider>
   );
 }
-
-const imgStyle = {
-  height: "60vh",
-  marginTop: "8rem",
-};
-const logoContainer = {
-  height: "100%",
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-};
 
 export default App;
