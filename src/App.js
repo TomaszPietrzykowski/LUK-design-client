@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./assets/CMYK/Logotyp_White.png";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={logoContainer}>
+        <img src={logo} alt="logo" style={imgStyle} />
+      </div>
     </div>
   );
 }
+
+const imgStyle = {
+  height: "60vh",
+  marginTop: "8rem",
+};
+const logoContainer = {
+  height: "100%",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+};
 
 export default App;
