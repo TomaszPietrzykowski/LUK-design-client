@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-// import Container from "@material-ui/core/Container";
 import { makeStyles } from '@material-ui/styles';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -46,6 +45,12 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       paddingBottom: 0,
     },
+  },
+  container: {
+    width: '100%',
+    maxWidth: 1400,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   logoContainer: {
     padding: 0,
@@ -257,24 +262,24 @@ const Header = ({ value, setValue }) => {
     <Fragment>
       <ElevationScroll>
         <AppBar className={classes.appBarWhite}>
-          {/* <Container> */}
-          <Toolbar disableGutters={matches ? true : false}>
-            <Button
-              disableRipple
-              className={classes.logoContainer}
-              component={Link}
-              to='/'
-              onClick={() => setValue(6)}
-            >
-              <img
-                src={logoLight}
-                alt='luk design logo'
-                className={classes.logo}
-              />
-            </Button>
-            {matches ? drawer : tabs}
-          </Toolbar>
-          {/* </Container> */}
+          <div className={classes.container}>
+            <Toolbar disableGutters={matches ? true : false}>
+              <Button
+                disableRipple
+                className={classes.logoContainer}
+                component={Link}
+                to='/'
+                onClick={() => setValue(6)}
+              >
+                <img
+                  src={logoLight}
+                  alt='luk design logo'
+                  className={classes.logo}
+                />
+              </Button>
+              {matches ? drawer : tabs}
+            </Toolbar>
+          </div>
         </AppBar>
       </ElevationScroll>
       <div className={classes.toolbarMargin} />
