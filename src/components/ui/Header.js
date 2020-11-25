@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     height: '4.5rem',
-    margin: '1rem .5rem',
+    margin: '.8rem .5rem',
     [theme.breakpoints.down('sm')]: {
       margin: '0rem',
       height: '1.7rem',
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   tabContainer: {
-    marginLeft: '1rem',
+    marginLeft: '.3rem',
   },
   tab: {
     ...theme.typography.tab,
@@ -82,7 +82,8 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     ...theme.typography.tab,
-    borderRadius: '6px',
+    borderRadius: '4px',
+    background: theme.palette.common.gradient1,
     color: 'white',
     paddingBottom: '0.2rem',
     marginLeft: 'auto',
@@ -104,6 +105,17 @@ const useStyles = makeStyles((theme) => ({
   drawerIcon: {
     height: '30px',
     width: '30px',
+  },
+  langIconContainer: {
+    '&:hover': {
+      backgroundColor: 'white',
+    },
+  },
+  langIcon: {
+    height: '16px',
+    width: '16px',
+    marginLeft: '1rem',
+    paddingBottom: '.15rem',
   },
   drawer: {
     backgroundColor: 'white',
@@ -186,11 +198,12 @@ const Header = ({ value, setValue }) => {
                 label={route.name}
                 component={Link}
                 to={route.link}
+                disableRipple
               />
             )
         )}
-        <IconButton>
-          <LanguageIcon />
+        <IconButton className={classes.langIconContainer}>
+          <LanguageIcon className={classes.langIcon} />
         </IconButton>
       </Tabs>
     </Fragment>

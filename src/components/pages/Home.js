@@ -4,10 +4,11 @@ const Home = () => {
   return (
     <div
       style={{
-        background: 'white',
+        background: 'steelblue',
         color: 'black',
-        margin: '3rem',
-        padding: 0,
+        margin: 0,
+        padding: '3rem',
+        minHeight: '180vh',
       }}
     >
       <h1 style={{ margin: 0, paddingTop: '4rem' }}>Home</h1>

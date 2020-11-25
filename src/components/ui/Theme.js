@@ -10,6 +10,8 @@ export default createMuiTheme({
       blue: `${blue}`,
       orange: `${orange}`,
       footer: `${whitish}`,
+      gradient1:
+        'linear-gradient(120deg,rgba(0,210,191,1)0%,rgba(75,164,246,1)100%)',
     },
     primary: {
       main: `${blue}`,
@@ -23,8 +25,9 @@ export default createMuiTheme({
       fontFamily: 'Josefin sans',
       textTransform: 'none',
       fontWeight: '400',
-      fontSize: '12px',
-      marginLeft: '25px',
+      fontSize: '11px',
+      marginLeft: '16px',
+      letterSpacing: 2,
     },
   },
   breakpoints: {
