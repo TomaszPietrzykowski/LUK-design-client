@@ -1,8 +1,8 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme } from '@material-ui/core/styles';
 
-const blue = "#00aaff";
-const orange = "#ffba60";
-const whitish = "rgba(215, 215, 220, 1)";
+const blue = '#00aaff';
+const orange = '#ffba60';
+const whitish = 'rgba(215, 215, 220, 1)';
 
 export default createMuiTheme({
   palette: {
@@ -20,15 +20,15 @@ export default createMuiTheme({
   },
   typography: {
     tab: {
-      fontFamily: "Poppins, sans",
-      textTransform: "none",
-      fontWeight: "700",
-      fontSize: "1rem",
-      marginLeft: "25px",
+      fontFamily: 'Josefin sans',
+      textTransform: 'none',
+      fontWeight: '400',
+      fontSize: '12px',
+      marginLeft: '25px',
     },
   },
   breakpoints: {
-    keys: ["xxs", "xs", "sm", "md", "lg", "xl"],
+    keys: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
     values: {
       xxs: 0,
       xs: 360,

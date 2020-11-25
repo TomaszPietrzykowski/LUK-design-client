@@ -1,17 +1,16 @@
-import React from "react";
+import React from 'react';
 
 const Home = () => {
   return (
     <div
       style={{
-        color: "white",
-        background: "black",
-        margin: 0,
+        background: 'white',
+        color: 'black',
+        margin: '3rem',
         padding: 0,
-        width: "100%",
       }}
     >
-      <h1 style={{ margin: 0, paddingTop: "4rem" }}>Home</h1>
+      <h1 style={{ margin: 0, paddingTop: '4rem' }}>Home</h1>
       <p>
         Contrary to popular belief, Lorem Ipsum is not simply random text. It
         has roots in a piece of classical Latin literature from 45 BC, making it
