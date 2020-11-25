@@ -127,7 +127,7 @@ const routes = [
   { name: 'CUSTOM TAILORING', link: '/custom' },
   { name: 'ABOUT US', link: '/about' },
   { name: 'CONTACT', link: '/contact' },
-  { name: 'SHOP', link: '/shop' },
+  { name: 'SHOP', link: '/webshop' },
 ];
 
 const Header = ({ value, setValue }) => {
@@ -170,7 +170,7 @@ const Header = ({ value, setValue }) => {
         value={value}
         onChange={handleChange}
         className={classes.tabContainer}
-        indicatorColor='primary'
+        indicatorColor='white'
       >
         {routes.map(
           (route, i) =>
@@ -264,7 +264,7 @@ const Header = ({ value, setValue }) => {
               className={classes.logoContainer}
               component={Link}
               to='/'
-              onClick={() => setValue(0)}
+              onClick={() => setValue(6)}
             >
               <img
                 src={logoLight}

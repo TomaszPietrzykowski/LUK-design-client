@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home = () => {
+const WeddingDresses = () => {
   return (
     <div
       style={{
@@ -10,9 +10,9 @@ const Home = () => {
         padding: 0,
       }}
     >
-      <h1 style={{ margin: 0, paddingTop: '4rem' }}>Home</h1>
+      <h1 style={{ margin: 0, paddingTop: '4rem' }}>Wedding dresses</h1>
     </div>
   );
 };
 
-export default Home;
+export default WeddingDresses;
