@@ -232,13 +232,13 @@ const Header = ({ value, setValue }) => {
           aria-owns={anchorEl ? 'dropdown-menu' : undefined}
           aria-haspopup={anchorEl ? true : undefined}
           onMouseOver={(e) => handleClick(e)}
+          // onMouseLeave={handleClose}
           key='dance couture'
           className={classes.tab}
           label='dance couture'
           component={Link}
           to='/dancecouture'
           disableRipple
-          // onMouseLeave={console.log('leave')}
         />
         <Tab
           key='wedding dresses'

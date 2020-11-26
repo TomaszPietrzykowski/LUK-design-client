@@ -11,6 +11,9 @@ import WeddingDresses from './components/pages/WeddingDresses';
 import AboutUs from './components/pages/AboutUs';
 import Contact from './components/pages/Contact';
 import CustomTailoring from './components/pages/CustomTailoring';
+import BallroomDresses from './components/pages/BallroomDresses';
+import LatinDresses from './components/pages/LatinDresses';
+import MenswearLatin from './components/pages/MenswearLatin';
 
 function App() {
   const [value, setValue] = useState(0);
@@ -22,12 +25,10 @@ function App() {
           <Header value={value} setValue={setValue} />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/webshop' component={() => <div>Shop</div>} />
             <Route exact path='/dancecouture' component={DanceCouture} />
-            <Route exact path='/ballroomdresses' component={DanceCouture} />
-            <Route exact path='/latindresses' component={DanceCouture} />
-            <Route exact path='/menswearlatin' component={DanceCouture} />
-            <Route exact path='/practisewear' component={DanceCouture} />
+            <Route exact path='/ballroomdresses' component={BallroomDresses} />
+            <Route exact path='/latindresses' component={LatinDresses} />
+            <Route exact path='/menswearlatin' component={MenswearLatin} />
             <Route exact path='/wedding' component={WeddingDresses} />
             <Route exact path='/custom' component={CustomTailoring} />
             <Route exact path='/about' component={AboutUs} />

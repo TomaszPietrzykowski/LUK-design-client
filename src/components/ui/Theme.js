@@ -11,7 +11,7 @@ export default createMuiTheme({
       orange: `${orange}`,
       footer: `${white}`,
       gradient1:
-        'linear-gradient(120deg,rgba(0,210,191,1)0%,rgba(75,164,246,1)100%)',
+        'linear-gradient(150deg,rgba(0,210,191,1)0%,rgba(75,164,246,1)100%)',
     },
     primary: {
       main: `${blue}`,
