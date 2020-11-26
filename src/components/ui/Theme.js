@@ -2,14 +2,14 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const blue = '#00aaff';
 const orange = '#ffba60';
-const whitish = 'rgba(215, 215, 220, 1)';
+const white = 'rgba(255, 255, 250, 1)';
 
 export default createMuiTheme({
   palette: {
     common: {
       blue: `${blue}`,
       orange: `${orange}`,
-      footer: `${whitish}`,
+      footer: `${white}`,
       gradient1:
         'linear-gradient(120deg,rgba(0,210,191,1)0%,rgba(75,164,246,1)100%)',
     },
@@ -17,13 +17,13 @@ export default createMuiTheme({
       main: `${blue}`,
     },
     secondary: {
-      main: `${whitish}`,
+      main: `${white}`,
     },
   },
   typography: {
     tab: {
       fontFamily: 'Josefin sans',
-      textTransform: 'none',
+      textTransform: 'uppercase',
       fontWeight: '400',
       fontSize: '11px',
       marginLeft: '16px',

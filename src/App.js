@@ -24,6 +24,10 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route exact path='/webshop' component={() => <div>Shop</div>} />
             <Route exact path='/dancecouture' component={DanceCouture} />
+            <Route exact path='/ballroomdresses' component={DanceCouture} />
+            <Route exact path='/latindresses' component={DanceCouture} />
+            <Route exact path='/menswearlatin' component={DanceCouture} />
+            <Route exact path='/practisewear' component={DanceCouture} />
             <Route exact path='/wedding' component={WeddingDresses} />
             <Route exact path='/custom' component={CustomTailoring} />
             <Route exact path='/about' component={AboutUs} />

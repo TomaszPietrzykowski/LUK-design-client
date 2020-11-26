@@ -17,6 +17,8 @@ import LanguageIcon from '@material-ui/icons/Translate';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import logoLight from '../../assets/RGB/Logotyp_White.png';
 
@@ -38,7 +40,7 @@ function ElevationScroll(props) {
 const useStyles = makeStyles((theme) => ({
   appBarWhite: {
     backgroundColor: 'white',
-    zIndex: theme.zIndex.modal + 1,
+    // zIndex: theme.zIndex.modal + 1,
   },
   toolbarMargin: {
     ...theme.mixins.toolbar,
@@ -102,6 +104,17 @@ const useStyles = makeStyles((theme) => ({
       marginRight: '0.2rem',
     },
   },
+  dropdown: {
+    boxShadow: '0px 1px 1px rgba(0,0,0,.2)',
+  },
+  dropdownItem: {
+    ...theme.typography.tab,
+    marginLeft: 0,
+    padding: '.8rem 1rem',
+    '&:focus': {
+      background: theme.palette.primary,
+    },
+  },
   drawerIcon: {
     height: '30px',
     width: '30px',
@@ -154,6 +167,33 @@ const Header = ({ value, setValue }) => {
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+  // const [selectedIndex, setSelectedIndex] = useState(0);
+
+  // dropdown menu handlers
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget);
+    setOpen(true);
+    setValue(0);
+  };
+
+  const handleClose = (e) => {
+    setAnchorEl(null);
+    setOpen(false);
+  };
+
+  const openShop = () => {
+    window.open('https://www.shopify.com');
+  };
+
+  // const menuOptions = [
+  //   { name: "DANCE COUTURE", link: "/dancecouture" },
+  //   { name: "BALLROOM DRESSES", link: "/dancecouture" },
+  //   { name: "LATIN DRESSES", link: "/dancecouture" },
+  //   { name: "MENSWEAR LATIN", link: "/dancecouture" },
+  //   { name: "PRACTISE WEAR", link: "/dancecouture" },
+  // ]
 
   useEffect(() => {
     routes.forEach((route, i) => {
@@ -178,8 +218,7 @@ const Header = ({ value, setValue }) => {
         variant='contained'
         color='primary'
         className={classes.button}
-        component={Link}
-        to='/webshop'
+        onClick={openShop}
       >
         WEBSHOP
       </Button>
@@ -187,25 +226,111 @@ const Header = ({ value, setValue }) => {
         value={value}
         onChange={handleChange}
         className={classes.tabContainer}
-        indicatorColor='white'
+        indicatorColor='secondary'
       >
-        {routes.map(
-          (route, i) =>
-            i < routes.length - 1 && (
-              <Tab
-                key={`${route.link}${i}`}
-                className={classes.tab}
-                label={route.name}
-                component={Link}
-                to={route.link}
-                disableRipple
-              />
-            )
-        )}
+        <Tab
+          aria-owns={anchorEl ? 'dropdown-menu' : undefined}
+          aria-haspopup={anchorEl ? true : undefined}
+          onMouseOver={(e) => handleClick(e)}
+          key='dance couture'
+          className={classes.tab}
+          label='dance couture'
+          component={Link}
+          to='/dancecouture'
+          disableRipple
+          // onMouseLeave={console.log('leave')}
+        />
+        <Tab
+          key='wedding dresses'
+          className={classes.tab}
+          label='wedding dresses'
+          component={Link}
+          to='/wedding'
+          disableRipple
+        />
+        <Tab
+          key='custom tailoring'
+          className={classes.tab}
+          label='custom tailoring'
+          component={Link}
+          to='/custom'
+          disableRipple
+        />
+        <Tab
+          key='about us'
+          className={classes.tab}
+          label='about us'
+          component={Link}
+          to='/about'
+          disableRipple
+        />
+        <Tab
+          key='CONTACT'
+          className={classes.tab}
+          label='CONTACT'
+          component={Link}
+          to='/contact'
+          disableRipple
+        />
         <IconButton className={classes.langIconContainer}>
           <LanguageIcon className={classes.langIcon} />
         </IconButton>
       </Tabs>
+      <Menu
+        classes={{ paper: classes.dropdown }}
+        id='dropdown-menu'
+        anchorEl={anchorEl}
+        getContentAnchorEl={null}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{ onMouseLeave: handleClose }}
+        elevation={0}
+        disableAutoFocusItem
+      >
+        <MenuItem
+          classes={{ root: classes.dropdownItem }}
+          onClick={handleClose}
+          component={Link}
+          to='/ballroomdresses'
+        >
+          BALLROOM DRESSES
+        </MenuItem>
+        <MenuItem
+          classes={{ root: classes.dropdownItem }}
+          onClick={handleClose}
+          component={Link}
+          to='/latindresses'
+        >
+          LATIN DRESSES
+        </MenuItem>
+        <MenuItem
+          classes={{ root: classes.dropdownItem }}
+          onClick={handleClose}
+          component={Link}
+          to='/menswearlatin'
+        >
+          MENSWEAR LATIN
+        </MenuItem>
+        <MenuItem
+          classes={{ root: classes.dropdownItem }}
+          onClick={() => {
+            handleClose();
+            openShop();
+          }}
+          // component={Link}
+          // to='/practisewear'
+        >
+          PRACTISE WEAR
+        </MenuItem>
+      </Menu>
     </Fragment>
   );
 
