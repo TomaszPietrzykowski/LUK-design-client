@@ -30,6 +30,14 @@ export default createMuiTheme({
       letterSpacing: 2,
     },
   },
+  utils: {
+    container: {
+      width: '100%',
+      maxWidth: 1400,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
   breakpoints: {
     keys: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
     values: {
