@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     width: '100%',
-    maxWidth: 1400,
+    // maxWidth: 1400,
     marginLeft: 'auto',
     marginRight: 'auto',
   },
