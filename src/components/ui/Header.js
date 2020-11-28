@@ -17,7 +17,6 @@ import LanguageIcon from '@material-ui/icons/Translate';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import logoLight from '../../assets/RGB/Logotyp_White.png';
@@ -117,10 +116,12 @@ const useStyles = makeStyles((theme) => ({
   dropdownItem: {
     ...theme.typography.tab,
     marginLeft: 0,
-    padding: '.8rem 1rem',
-    '&:focus': {
-      background: theme.palette.primary,
-    },
+    padding: '.9rem 2rem .9rem 2rem',
+  },
+  dropdownItem2: {
+    ...theme.typography.tab,
+    marginLeft: 0,
+    padding: '.3rem 1rem .3rem 1rem',
   },
   drawerIcon: {
     height: '30px',
@@ -176,6 +177,8 @@ const Header = ({ value, setValue }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
+  const [anchorEl2, setAnchorEl2] = useState(null);
+  const [open2, setOpen2] = useState(false);
   // const [selectedIndex, setSelectedIndex] = useState(0);
 
   // dropdown menu handlers
@@ -184,10 +187,18 @@ const Header = ({ value, setValue }) => {
     setOpen(true);
     setValue(0);
   };
+  const handleClick2 = (e) => {
+    setAnchorEl2(e.currentTarget);
+    setOpen2(true);
+  };
 
   const handleClose = (e) => {
     setAnchorEl(null);
     setOpen(false);
+  };
+  const handleClose2 = (e) => {
+    setAnchorEl2(null);
+    setOpen2(false);
   };
 
   const openShop = () => {
@@ -286,7 +297,13 @@ const Header = ({ value, setValue }) => {
           to='/contact'
           disableRipple
         />
-        <IconButton className={classes.langIconContainer}>
+        <IconButton
+          className={classes.langIconContainer}
+          aria-owns={anchorEl2 ? 'dropdown-lang' : undefined}
+          aria-haspopup={anchorEl2 ? true : undefined}
+          onMouseOver={(e) => handleClick2(e)}
+          onMouseLeave={handleClose2}
+        >
           <LanguageIcon className={classes.langIcon} />
         </IconButton>
       </Tabs>
@@ -348,6 +365,54 @@ const Header = ({ value, setValue }) => {
                     }}
                   >
                     PRACTISE WEAR
+                  </MenuItem>
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
+      <Popper
+        open={open2}
+        anchorEl={anchorEl2}
+        role={undefined}
+        transition
+        disablePortal
+        placement='bottom-start'
+      >
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{
+              transformOrigin: 'top left',
+            }}
+          >
+            <Paper className={classes.dropdown} elevation={0}>
+              <ClickAwayListener onClickAway={handleClose2}>
+                <MenuList
+                  autoFocusItem={false}
+                  id='dropdown-lang'
+                  onKeyDown={handleListKeyDown}
+                  disableAutoFocusItem
+                  onMouseLeave={handleClose2}
+                  onMouseOver={() => setOpen2(true)}
+                  disablePadding
+                >
+                  <MenuItem
+                    classes={{ root: classes.dropdownItem2 }}
+                    onClick={handleClose2}
+                    component={Link}
+                    to='/ballroomdresses'
+                  >
+                    EN
+                  </MenuItem>
+                  <MenuItem
+                    classes={{ root: classes.dropdownItem2 }}
+                    onClick={handleClose2}
+                    component={Link}
+                    to='/latindresses'
+                  >
+                    NL
                   </MenuItem>
                 </MenuList>
               </ClickAwayListener>
