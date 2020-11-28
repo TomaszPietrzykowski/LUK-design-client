@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import showcase from '../../assets/showcase02.jpg';
 import { Link } from 'react-router-dom';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax } from 'react-parallax';
 
 const useStyles = makeStyles((theme) => ({
   showcase: {

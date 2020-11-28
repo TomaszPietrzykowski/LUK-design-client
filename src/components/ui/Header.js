@@ -21,6 +21,13 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import logoLight from '../../assets/RGB/Logotyp_White.png';
+import {
+  ClickAwayListener,
+  Grow,
+  MenuList,
+  Paper,
+  Popper,
+} from '@material-ui/core';
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -212,6 +219,13 @@ const Header = ({ value, setValue }) => {
     setValue(value);
   };
 
+  function handleListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
+
   const tabs = (
     <Fragment>
       <Button
@@ -232,7 +246,7 @@ const Header = ({ value, setValue }) => {
           aria-owns={anchorEl ? 'dropdown-menu' : undefined}
           aria-haspopup={anchorEl ? true : undefined}
           onMouseOver={(e) => handleClick(e)}
-          // onMouseLeave={handleClose}
+          onMouseLeave={handleClose}
           key='dance couture'
           className={classes.tab}
           label='dance couture'
@@ -276,61 +290,71 @@ const Header = ({ value, setValue }) => {
           <LanguageIcon className={classes.langIcon} />
         </IconButton>
       </Tabs>
-      <Menu
-        classes={{ paper: classes.dropdown }}
-        id='dropdown-menu'
-        anchorEl={anchorEl}
-        getContentAnchorEl={null}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
+      <Popper
         open={open}
-        onClose={handleClose}
-        MenuListProps={{ onMouseLeave: handleClose }}
-        elevation={0}
-        disableAutoFocusItem
+        anchorEl={anchorEl}
+        role={undefined}
+        transition
+        disablePortal
+        placement='bottom-start'
       >
-        <MenuItem
-          classes={{ root: classes.dropdownItem }}
-          onClick={handleClose}
-          component={Link}
-          to='/ballroomdresses'
-        >
-          BALLROOM DRESSES
-        </MenuItem>
-        <MenuItem
-          classes={{ root: classes.dropdownItem }}
-          onClick={handleClose}
-          component={Link}
-          to='/latindresses'
-        >
-          LATIN DRESSES
-        </MenuItem>
-        <MenuItem
-          classes={{ root: classes.dropdownItem }}
-          onClick={handleClose}
-          component={Link}
-          to='/menswearlatin'
-        >
-          MENSWEAR LATIN
-        </MenuItem>
-        <MenuItem
-          classes={{ root: classes.dropdownItem }}
-          onClick={() => {
-            handleClose();
-            openShop();
-          }}
-          // component={Link}
-          // to='/practisewear'
-        >
-          PRACTISE WEAR
-        </MenuItem>
-      </Menu>
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{
+              transformOrigin: 'top left',
+            }}
+          >
+            <Paper className={classes.dropdown} elevation={0}>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList
+                  autoFocusItem={false}
+                  id='dropdown-menu'
+                  onKeyDown={handleListKeyDown}
+                  disableAutoFocusItem
+                  onMouseLeave={handleClose}
+                  onMouseOver={() => setOpen(true)}
+                  disablePadding
+                >
+                  <MenuItem
+                    classes={{ root: classes.dropdownItem }}
+                    onClick={handleClose}
+                    component={Link}
+                    to='/ballroomdresses'
+                  >
+                    BALLROOM DRESSES
+                  </MenuItem>
+                  <MenuItem
+                    classes={{ root: classes.dropdownItem }}
+                    onClick={handleClose}
+                    component={Link}
+                    to='/latindresses'
+                  >
+                    LATIN DRESSES
+                  </MenuItem>
+                  <MenuItem
+                    classes={{ root: classes.dropdownItem }}
+                    onClick={handleClose}
+                    component={Link}
+                    to='/menswearlatin'
+                  >
+                    MENSWEAR LATIN
+                  </MenuItem>
+                  <MenuItem
+                    classes={{ root: classes.dropdownItem }}
+                    onClick={() => {
+                      handleClose();
+                      openShop();
+                    }}
+                  >
+                    PRACTISE WEAR
+                  </MenuItem>
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
     </Fragment>
   );
 
