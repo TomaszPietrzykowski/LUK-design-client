@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
 const Showcase = () => {
   const classes = useStyles();
   return (
-    <Parallax bgImage={showcase} strength={220}>
+    <Parallax bgImage={showcase} strength={300}>
       <div className={classes.showcase}>
         <div className={classes.container}>
           <h1 className={classes.slogan}>

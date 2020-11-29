@@ -14,6 +14,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import LanguageIcon from '@material-ui/icons/Translate';
+import ArrowIcon from '@material-ui/icons/KeyboardArrowDown';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -138,6 +139,19 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '1rem',
     paddingBottom: '.15rem',
   },
+  arrowIconContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+  },
+  arrowIcon: {
+    width: 13,
+    paddingBottom: 4,
+    paddingLeft: 2,
+    color: theme.palette.text.primary,
+  },
   drawer: {
     backgroundColor: 'white',
   },
@@ -177,8 +191,8 @@ const Header = ({ value, setValue }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
-  const [anchorEl2, setAnchorEl2] = useState(null);
-  const [open2, setOpen2] = useState(false);
+  const [anchorElLang, setAnchorElLang] = useState(null);
+  const [openLang, setOpenLang] = useState(false);
   // const [selectedIndex, setSelectedIndex] = useState(0);
 
   // dropdown menu handlers
@@ -187,9 +201,9 @@ const Header = ({ value, setValue }) => {
     setOpen(true);
     setValue(0);
   };
-  const handleClick2 = (e) => {
-    setAnchorEl2(e.currentTarget);
-    setOpen2(true);
+  const handleClickLang = (e) => {
+    setAnchorElLang(e.currentTarget);
+    setOpenLang(true);
   };
 
   const handleClose = (e) => {
@@ -197,8 +211,8 @@ const Header = ({ value, setValue }) => {
     setOpen(false);
   };
   const handleClose2 = (e) => {
-    setAnchorEl2(null);
-    setOpen2(false);
+    setAnchorElLang(null);
+    setOpenLang(false);
   };
 
   const openShop = () => {
@@ -253,18 +267,28 @@ const Header = ({ value, setValue }) => {
         className={classes.tabContainer}
         indicatorColor='secondary'
       >
-        <Tab
-          aria-owns={anchorEl ? 'dropdown-menu' : undefined}
-          aria-haspopup={anchorEl ? true : undefined}
+        <div
+          style={{ display: 'flex' }}
           onMouseOver={(e) => handleClick(e)}
           onMouseLeave={handleClose}
-          key='dance couture'
-          className={classes.tab}
-          label='dance couture'
-          component={Link}
-          to='/dancecouture'
-          disableRipple
-        />
+        >
+          <Tab
+            aria-owns={anchorEl ? 'dropdown-menu' : undefined}
+            aria-haspopup={anchorEl ? true : undefined}
+            onMouseOver={(e) => handleClick(e)}
+            onMouseLeave={handleClose}
+            key='dance couture'
+            className={classes.tab}
+            style={{ paddingRight: 0 }}
+            label='dance couture'
+            component={Link}
+            to='/dancecouture'
+            disableRipple
+          />
+          <div className={classes.arrowIconContainer}>
+            <ArrowIcon className={classes.arrowIcon} />
+          </div>
+        </div>
         <Tab
           key='wedding dresses'
           className={classes.tab}
@@ -299,9 +323,9 @@ const Header = ({ value, setValue }) => {
         />
         <IconButton
           className={classes.langIconContainer}
-          aria-owns={anchorEl2 ? 'dropdown-lang' : undefined}
-          aria-haspopup={anchorEl2 ? true : undefined}
-          onMouseOver={(e) => handleClick2(e)}
+          aria-owns={anchorElLang ? 'dropdown-lang' : undefined}
+          aria-haspopup={anchorElLang ? true : undefined}
+          onMouseOver={(e) => handleClickLang(e)}
           onMouseLeave={handleClose2}
         >
           <LanguageIcon className={classes.langIcon} />
@@ -373,8 +397,8 @@ const Header = ({ value, setValue }) => {
         )}
       </Popper>
       <Popper
-        open={open2}
-        anchorEl={anchorEl2}
+        open={openLang}
+        anchorEl={anchorElLang}
         role={undefined}
         transition
         disablePortal
@@ -395,7 +419,7 @@ const Header = ({ value, setValue }) => {
                   onKeyDown={handleListKeyDown}
                   disableAutoFocusItem
                   onMouseLeave={handleClose2}
-                  onMouseOver={() => setOpen2(true)}
+                  onMouseOver={() => setOpenLang(true)}
                   disablePadding
                 >
                   <MenuItem

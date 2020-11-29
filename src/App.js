@@ -17,7 +17,7 @@ import MenswearLatin from './components/pages/MenswearLatin';
 
 function App() {
   const [value, setValue] = useState(0);
-  const [language, setLanguage] = useState('EN');
+  // const [lang, setLang] = useState('english');
 
   return (
     <ThemeProvider theme={theme}>
