@@ -26,21 +26,21 @@ const useStyles = makeStyles((theme) => ({
     padding: '10rem',
   },
   slogan: {
-    fontFamily: 'Junge, serif',
+    fontFamily: 'Bree serif',
     fontWeight: 400,
-    fontSize: 60,
+    fontSize: 50,
     letterSpacing: 2,
     color: 'white',
-    lineHeight: 1.2,
+    lineHeight: 1,
     paddingTop: '8rem',
   },
   para: {
     color: 'white',
     fontFamily: 'Open sans',
-    fontSize: '1rem',
+    fontSize: '.9rem',
     letterSpacing: 2,
     lineHeight: 1.7,
-    marginTop: '4rem',
+    marginTop: '1rem',
     opacity: 0.8,
   },
   btnContainer: {
@@ -50,24 +50,24 @@ const useStyles = makeStyles((theme) => ({
   btnPrimary: {
     ...theme.typography.tab,
     marginLeft: 0,
-    borderRadius: 6,
+    borderRadius: 4,
     background: theme.palette.common.gradient1,
     color: 'white',
-    padding: '.5rem 3rem .3rem 3rem',
-    fontSize: 14,
+    padding: '.6rem 3rem .5rem 3rem',
+    fontSize: 12,
     fontWeight: 'bold',
     fontFamily: 'Josefin Sans',
     border: '1px solid white',
   },
   btnSecondary: {
     ...theme.typography.tab,
-    borderRadius: 6,
+    borderRadius: 4,
     border: '1px solid white',
     background: 'none',
     color: 'white',
-    marginLeft: '4rem',
-    padding: '.8rem 3rem .7rem 3rem',
-    fontSize: 14,
+    marginLeft: '3rem',
+    padding: '.6rem 3rem .5rem 3rem',
+    fontSize: 12,
     fontWeight: 'bold',
     fontFamily: 'Josefin Sans',
     '&:hover': {
@@ -100,7 +100,7 @@ const Showcase = () => {
                 window.open('https://www.shopify.com');
               }}
             >
-              online shop
+              shop online
             </Button>
             <Button
               variant='contained'

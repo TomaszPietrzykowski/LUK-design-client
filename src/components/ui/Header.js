@@ -95,12 +95,14 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.common.gradient1,
     color: 'white',
     paddingBottom: '0.2rem',
+    paddingLeft: '1.2rem',
+    paddingRight: '1.2rem',
     marginLeft: 'auto',
   },
   iconButtonContainer: {
-    marginLeft: 'auto',
+    marginLeft: '1rem',
     marginRight: '1rem',
-    color: theme.palette.primary.main,
+    color: theme.palette.text.primary,
     '&:hover': {
       backgroundColor: 'transparent',
     },
@@ -125,8 +127,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '.3rem 1rem .3rem 1rem',
   },
   drawerIcon: {
-    height: '30px',
-    width: '30px',
+    height: '32px',
+    width: '32px',
   },
   langIconContainer: {
     '&:hover': {
@@ -259,7 +261,7 @@ const Header = ({ value, setValue }) => {
         className={classes.button}
         onClick={openShop}
       >
-        WEBSHOP
+        SHOP
       </Button>
       <Tabs
         value={value}
@@ -494,6 +496,14 @@ const Header = ({ value, setValue }) => {
           ))}
         </List>
       </SwipeableDrawer>
+      <Button
+        variant='contained'
+        color='primary'
+        className={classes.button}
+        onClick={openShop}
+      >
+        SHOP
+      </Button>
       <IconButton
         className={classes.iconButtonContainer}
         onClick={() => setOpenDrawer(!openDrawer)}

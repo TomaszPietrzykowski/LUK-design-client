@@ -11,7 +11,7 @@ export default createMuiTheme({
       orange: `${orange}`,
       footer: `${white}`,
       gradient1:
-        'linear-gradient(150deg,rgba(0,210,191,1)0%,rgba(75,164,246,1)100%)',
+        'linear-gradient(165deg,rgba(63,152,254,1)0%,rgba(2,67,220,1)100%)',
     },
     primary: {
       main: `${blue}`,
@@ -45,8 +45,8 @@ export default createMuiTheme({
       xs: 360,
       sm: 410,
       md: 600,
-      lg: 960,
-      xl: 1200,
+      lg: 1150,
+      xl: 1300,
     },
   },
 });
