@@ -4,11 +4,12 @@ import Button from '@material-ui/core/Button';
 import showcase from '../../assets/showcase02.jpg';
 import { Link } from 'react-router-dom';
 import { Parallax } from 'react-parallax';
+import BagIcon from '@material-ui/icons/LocalMallOutlined';
 
 const useStyles = makeStyles((theme) => ({
   showcase: {
     width: '100%',
-    minHeight: '42vw',
+    minHeight: '40vw',
     // backgroundColor: 'steelblue',
     // backgroundImage: `url(${showcase})`,
     // backgroundSize: 'cover',
@@ -26,12 +27,13 @@ const useStyles = makeStyles((theme) => ({
     padding: '10rem',
   },
   slogan: {
-    fontFamily: 'Bree serif',
+    fontFamily: 'Source Serif Pro, serif',
     fontWeight: 400,
-    fontSize: 50,
+    fontStyle: 'italic',
+    fontSize: 60,
     letterSpacing: 2,
     color: 'white',
-    lineHeight: 1,
+    lineHeight: 1.15,
     paddingTop: '8rem',
   },
   para: {
@@ -41,23 +43,34 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: 2,
     lineHeight: 1.7,
     marginTop: '1rem',
-    opacity: 0.8,
+    opacity: 0.7,
   },
   btnContainer: {
     display: 'flex',
-    marginTop: '4rem',
+    marginTop: '2.5rem',
   },
   btnPrimary: {
     ...theme.typography.tab,
+    display: 'flex',
+    alignItems: 'center',
     marginLeft: 0,
     borderRadius: 4,
     background: theme.palette.common.gradient1,
     color: 'white',
-    padding: '.6rem 3rem .5rem 3rem',
+    padding: '.24rem 3rem .2rem 2.5rem',
     fontSize: 12,
     fontWeight: 'bold',
     fontFamily: 'Josefin Sans',
-    border: '1px solid white',
+    // border: '1px solid white',
+    cursor: 'pointer',
+    '&:hover': {
+      opacity: 0.85,
+    },
+  },
+  bagIcon: {
+    fontSize: '1.2rem',
+    marginBottom: 5,
+    marginRight: '.6rem',
   },
   btnSecondary: {
     ...theme.typography.tab,
@@ -72,6 +85,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Josefin Sans',
     '&:hover': {
       background: 'none',
+      opacity: 0.85,
     },
   },
 }));
@@ -92,16 +106,15 @@ const Showcase = () => {
             accusantium doloremque laudantium, totam rem aperiam, eaque.
           </p>
           <div className={classes.btnContainer}>
-            <Button
-              variant='contained'
-              color='primary'
+            <div
               className={classes.btnPrimary}
               onClick={() => {
                 window.open('https://www.shopify.com');
               }}
             >
-              shop online
-            </Button>
+              <BagIcon className={classes.bagIcon} />
+              <span>shop online</span>
+            </div>
             <Button
               variant='contained'
               color='primary'
