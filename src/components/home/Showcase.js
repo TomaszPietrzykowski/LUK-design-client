@@ -9,7 +9,7 @@ import BagIcon from '@material-ui/icons/LocalMallOutlined';
 const useStyles = makeStyles((theme) => ({
   showcase: {
     width: '100%',
-    minHeight: '40vw',
+    minHeight: '25vh',
     // backgroundColor: 'steelblue',
     // backgroundImage: `url(${showcase})`,
     // backgroundSize: 'cover',
@@ -27,27 +27,23 @@ const useStyles = makeStyles((theme) => ({
     padding: '10rem',
   },
   slogan: {
-    fontFamily: 'Source Serif Pro, serif',
-    fontWeight: 400,
-    fontStyle: 'italic',
+    ...theme.typography.serif,
     fontSize: 60,
-    letterSpacing: 2,
     color: 'white',
-    lineHeight: 1.15,
     paddingTop: '8rem',
   },
   para: {
     color: 'white',
-    fontFamily: 'Open sans',
-    fontSize: '.9rem',
-    letterSpacing: 2,
-    lineHeight: 1.7,
+    fontFamily: 'Source Sans Pro, serif',
+    fontSize: '1rem',
+    letterSpacing: 1,
+    lineHeight: 1.4,
     marginTop: '1rem',
     opacity: 0.7,
   },
   btnContainer: {
     display: 'flex',
-    marginTop: '2.5rem',
+    marginTop: '2.2rem',
   },
   btnPrimary: {
     ...theme.typography.tab,
@@ -57,14 +53,15 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 4,
     background: theme.palette.common.gradient1,
     color: 'white',
-    padding: '.24rem 3rem .2rem 2.5rem',
+    padding: '.25rem 3rem .2rem 2.5rem',
     fontSize: 12,
     fontWeight: 'bold',
     fontFamily: 'Josefin Sans',
     // border: '1px solid white',
+    transition: 'opacity .15s ease-out',
     cursor: 'pointer',
     '&:hover': {
-      opacity: 0.85,
+      opacity: 0.9,
     },
   },
   bagIcon: {
@@ -83,6 +80,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 12,
     fontWeight: 'bold',
     fontFamily: 'Josefin Sans',
+    transition: 'opacity .15s ease-out',
     '&:hover': {
       background: 'none',
       opacity: 0.85,
@@ -103,7 +101,8 @@ const Showcase = () => {
           <p className={classes.para}>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem{' '}
             <br />
-            accusantium doloremque laudantium, totam rem aperiam, eaque.
+            accusantium doloremque laudantium, totam rem aperiam, eaque. <br />{' '}
+            Perspiciatis unde omnis iste natus.
           </p>
           <div className={classes.btnContainer}>
             <div

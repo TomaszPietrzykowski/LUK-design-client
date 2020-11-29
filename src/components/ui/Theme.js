@@ -29,6 +29,13 @@ export default createMuiTheme({
       marginLeft: '16px',
       letterSpacing: 2,
     },
+    serif: {
+      fontFamily: 'Source Serif Pro, serif',
+      fontWeight: 400,
+      fontStyle: 'italic',
+      letterSpacing: 2,
+      lineHeight: 1.15,
+    },
   },
   utils: {
     container: {
