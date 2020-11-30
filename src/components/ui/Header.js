@@ -47,10 +47,11 @@ function ElevationScroll(props) {
 const useStyles = makeStyles((theme) => ({
   appBarWhite: {
     backgroundColor: 'white',
-    // zIndex: theme.zIndex.modal + 1,
+    zIndex: theme.zIndex.modal + 1,
   },
   toolbarMargin: {
     ...theme.mixins.toolbar,
+    marginBottom: '2.2rem',
     [theme.breakpoints.down('sm')]: {
       paddingBottom: 0,
     },
@@ -121,10 +122,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
     padding: '.9rem 2rem .9rem 2rem',
   },
-  dropdownItem2: {
+  dropdownItemShop: {
     ...theme.typography.tab,
     marginLeft: 0,
-    padding: '.3rem 1rem .3rem 1rem',
+    padding: '.9rem 2rem .9rem 2rem',
   },
   drawerIcon: {
     height: '32px',
@@ -159,29 +160,47 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerItem: {
     ...theme.typography.tab,
-    color: theme.palette.primary.main,
-    letterSpacing: 1.3,
-    '&:hover': {
-      color: theme.palette.primary.light,
-    },
+    color: theme.palette.text.primary,
+    fontSize: 12,
+    padding: '.4rem 2rem .4rem 1rem',
+  },
+  drawerItemShop: {
+    ...theme.typography.tab,
+    color: 'white',
+    padding: '.4rem 2rem .4rem 1rem',
+    fontSize: 12,
+  },
+  drawerItemSelected: {
+    ...theme.typography.tab,
+    fontSize: 12,
+    padding: '.4rem 2rem .4rem 1rem',
+    color: 'rgba(2,67,220,.7)',
   },
   drawerBackground: {
     paddingRight: '3rem',
-    '&:hover': {
-      backgroundColor: theme.palette.action.disabledBackground,
-    },
+  },
+  drawerBackgroundSelected: {
+    paddingRight: '3rem',
+  },
+  drawerBackgroundShop: {
+    paddingRight: '3rem',
+    backgroundColor: 'black',
   },
 }));
 
 // --------------------------------------------------- STYLES END
 
 const routes = [
+  { name: 'HOME', link: '/' },
   { name: 'DANCE COUTURE', link: '/dancecouture' },
+  { name: 'BALLROOM DRESSES', link: '/ballroomdresses' },
+  { name: 'LATIN DRESSES', link: '/latindresses' },
+  { name: 'MEANSWEAR LATIN', link: '/menswearlatin' },
   { name: 'WEDDING DRESSES', link: '/wedding' },
   { name: 'CUSTOM TAILORING', link: '/custom' },
   { name: 'ABOUT US', link: '/about' },
   { name: 'CONTACT', link: '/contact' },
-  { name: 'SHOP', link: '/webshop' },
+  { name: 'SHOP ONLINE', link: '/webshop' },
 ];
 
 const Header = ({ value, setValue }) => {
@@ -220,14 +239,6 @@ const Header = ({ value, setValue }) => {
   const openShop = () => {
     window.open('https://www.shopify.com');
   };
-
-  // const menuOptions = [
-  //   { name: "DANCE COUTURE", link: "/dancecouture" },
-  //   { name: "BALLROOM DRESSES", link: "/dancecouture" },
-  //   { name: "LATIN DRESSES", link: "/dancecouture" },
-  //   { name: "MENSWEAR LATIN", link: "/dancecouture" },
-  //   { name: "PRACTISE WEAR", link: "/dancecouture" },
-  // ]
 
   useEffect(() => {
     routes.forEach((route, i) => {
@@ -475,18 +486,20 @@ const Header = ({ value, setValue }) => {
               to={route.link}
               className={
                 i === routes.length - 1
-                  ? classes.backgroundAPI
+                  ? classes.drawerBackgroundShop
+                  : i === value
+                  ? classes.drawerBackgroundSelected
                   : classes.drawerBackground
               }
-              selected={value === i && value < routes.length - 1 ? true : false}
+              selected={false}
             >
               <ListItemText
                 disableTypography
                 className={
                   i === routes.length - 1
-                    ? classes.drawerItemAPI
+                    ? classes.drawerItemShop
                     : value === i
-                    ? classes.selectedText
+                    ? classes.drawerItemSelected
                     : classes.drawerItem
                 }
               >
@@ -513,11 +526,6 @@ const Header = ({ value, setValue }) => {
       </IconButton>
     </Fragment>
   );
-
-  // const trigger = useScrollTrigger({
-  //   disableHysteresis: true,
-  //   threshold: 0,
-  // });
 
   return (
     <Fragment>

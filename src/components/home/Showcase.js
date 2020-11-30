@@ -9,7 +9,7 @@ import BagIcon from '@material-ui/icons/LocalMallOutlined';
 const useStyles = makeStyles((theme) => ({
   showcase: {
     width: '100%',
-    minHeight: '25vh',
+    minHeight: '20vh',
     // backgroundColor: 'steelblue',
     // backgroundImage: `url(${showcase})`,
     // backgroundSize: 'cover',
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-start',
     minHeight: 'inherit',
     padding: '10rem',
+    paddingBottom: '8rem',
   },
   slogan: {
     ...theme.typography.serif,
