@@ -14,6 +14,7 @@ import CustomTailoring from './components/pages/CustomTailoring';
 import BallroomDresses from './components/pages/BallroomDresses';
 import LatinDresses from './components/pages/LatinDresses';
 import MenswearLatin from './components/pages/MenswearLatin';
+import Footer from './components/ui/Footer';
 
 function App() {
   const [value, setValue] = useState(0);
@@ -40,7 +41,7 @@ function App() {
             <Route exact path='/about' component={AboutUs} />
             <Route exact path='/contact' component={Contact} />
           </Switch>
-          {/* <Footer setValue={setValue} /> */}
+          <Footer setValue={setValue} />
         </ScrollToTop>
       </Router>
     </ThemeProvider>
