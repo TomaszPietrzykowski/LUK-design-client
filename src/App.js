@@ -17,13 +17,18 @@ import MenswearLatin from './components/pages/MenswearLatin';
 
 function App() {
   const [value, setValue] = useState(0);
-  // const [lang, setLang] = useState('english');
+  const [lang, setLang] = useState('en');
 
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <ScrollToTop>
-          <Header value={value} setValue={setValue} />
+          <Header
+            value={value}
+            setValue={setValue}
+            lang={lang}
+            setLang={setLang}
+          />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/dancecouture' component={DanceCouture} />

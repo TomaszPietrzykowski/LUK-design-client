@@ -12,7 +12,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '../../assets/menuThin.png';
 import LanguageIcon from '@material-ui/icons/Translate';
 import ArrowIcon from '@material-ui/icons/KeyboardArrowDown';
 import List from '@material-ui/core/List';
@@ -88,6 +88,14 @@ const useStyles = makeStyles((theme) => ({
   },
   tab: {
     ...theme.typography.tab,
+    color: theme.palette.text.primary,
+    opacity: 0.8,
+    minWidth: 30,
+  },
+  tabSelected: {
+    ...theme.typography.tab,
+    color: theme.palette.text.primary,
+    opacity: 1,
     minWidth: 30,
   },
   button: {
@@ -122,10 +130,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
     padding: '.9rem 2rem .9rem 2rem',
   },
-  dropdownItemShop: {
+  dropdownItemLang: {
     ...theme.typography.tab,
     marginLeft: 0,
-    padding: '.9rem 2rem .9rem 2rem',
+    padding: '.4rem 1rem',
   },
   drawerIcon: {
     height: '32px',
@@ -170,18 +178,18 @@ const useStyles = makeStyles((theme) => ({
     padding: '.4rem 2rem .4rem 1rem',
     fontSize: 12,
   },
-  drawerItemSelected: {
-    ...theme.typography.tab,
-    fontSize: 12,
-    padding: '.4rem 2rem .4rem 1rem',
-    color: 'rgba(2,67,220,.7)',
-  },
+  // drawerItemSelected: {
+  //   ...theme.typography.tab,
+  //   fontSize: 12,
+  //   padding: '.4rem 2rem .4rem 1rem',
+  //   color: 'rgba(2,67,220,.7)',
+  // },
   drawerBackground: {
     paddingRight: '3rem',
   },
-  drawerBackgroundSelected: {
-    paddingRight: '3rem',
-  },
+  // drawerBackgroundSelected: {
+  //   paddingRight: '3rem',
+  // },
   drawerBackgroundShop: {
     paddingRight: '3rem',
     backgroundColor: 'black',
@@ -191,6 +199,13 @@ const useStyles = makeStyles((theme) => ({
 // --------------------------------------------------- STYLES END
 
 const routes = [
+  { name: 'DANCE COUTURE', link: '/dancecouture' },
+  { name: 'WEDDING DRESSES', link: '/wedding' },
+  { name: 'CUSTOM TAILORING', link: '/custom' },
+  { name: 'ABOUT US', link: '/about' },
+  { name: 'CONTACT', link: '/contact' },
+];
+const drawerRoutes = [
   { name: 'HOME', link: '/' },
   { name: 'DANCE COUTURE', link: '/dancecouture' },
   { name: 'BALLROOM DRESSES', link: '/ballroomdresses' },
@@ -200,10 +215,10 @@ const routes = [
   { name: 'CUSTOM TAILORING', link: '/custom' },
   { name: 'ABOUT US', link: '/about' },
   { name: 'CONTACT', link: '/contact' },
-  { name: 'SHOP ONLINE', link: '/webshop' },
+  { name: 'SHOP ONLINE' },
 ];
 
-const Header = ({ value, setValue }) => {
+const Header = ({ value, setValue, lang, setLang }) => {
   const classes = useStyles();
   const theme = useTheme();
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -230,8 +245,9 @@ const Header = ({ value, setValue }) => {
   const handleClose = (e) => {
     setAnchorEl(null);
     setOpen(false);
+    setValue(0);
   };
-  const handleClose2 = (e) => {
+  const handleCloseLang = (e) => {
     setAnchorElLang(null);
     setOpenLang(false);
   };
@@ -251,7 +267,7 @@ const Header = ({ value, setValue }) => {
       }
     });
     // eslint-disable-next-line
-  }, [value, routes]);
+  }, [value, routes, window.location.pathname]);
 
   const handleChange = (e, value) => {
     setValue(value);
@@ -288,10 +304,11 @@ const Header = ({ value, setValue }) => {
           <Tab
             aria-owns={anchorEl ? 'dropdown-menu' : undefined}
             aria-haspopup={anchorEl ? true : undefined}
+            aria-selected={value === 0}
             onMouseOver={(e) => handleClick(e)}
             onMouseLeave={handleClose}
-            key='dance couture'
-            className={classes.tab}
+            key='dancecouture'
+            className={value === 0 ? classes.tabSelected : classes.tab}
             style={{ paddingRight: 0 }}
             label='dance couture'
             component={Link}
@@ -304,7 +321,7 @@ const Header = ({ value, setValue }) => {
         </div>
         <Tab
           key='wedding dresses'
-          className={classes.tab}
+          className={value === 1 ? classes.tabSelected : classes.tab}
           label='wedding dresses'
           component={Link}
           to='/wedding'
@@ -312,7 +329,7 @@ const Header = ({ value, setValue }) => {
         />
         <Tab
           key='custom tailoring'
-          className={classes.tab}
+          className={value === 2 ? classes.tabSelected : classes.tab}
           label='custom tailoring'
           component={Link}
           to='/custom'
@@ -320,7 +337,7 @@ const Header = ({ value, setValue }) => {
         />
         <Tab
           key='about us'
-          className={classes.tab}
+          className={value === 3 ? classes.tabSelected : classes.tab}
           label='about us'
           component={Link}
           to='/about'
@@ -328,7 +345,7 @@ const Header = ({ value, setValue }) => {
         />
         <Tab
           key='CONTACT'
-          className={classes.tab}
+          className={value === 4 ? classes.tabSelected : classes.tab}
           label='CONTACT'
           component={Link}
           to='/contact'
@@ -339,7 +356,7 @@ const Header = ({ value, setValue }) => {
           aria-owns={anchorElLang ? 'dropdown-lang' : undefined}
           aria-haspopup={anchorElLang ? true : undefined}
           onMouseOver={(e) => handleClickLang(e)}
-          onMouseLeave={handleClose2}
+          onMouseLeave={handleCloseLang}
         >
           <LanguageIcon className={classes.langIcon} />
         </IconButton>
@@ -425,29 +442,33 @@ const Header = ({ value, setValue }) => {
             }}
           >
             <Paper className={classes.dropdown} elevation={0}>
-              <ClickAwayListener onClickAway={handleClose2}>
+              <ClickAwayListener onClickAway={handleCloseLang}>
                 <MenuList
                   autoFocusItem={false}
                   id='dropdown-lang'
                   onKeyDown={handleListKeyDown}
                   disableAutoFocusItem
-                  onMouseLeave={handleClose2}
+                  onMouseLeave={handleCloseLang}
                   onMouseOver={() => setOpenLang(true)}
                   disablePadding
                 >
                   <MenuItem
-                    classes={{ root: classes.dropdownItem2 }}
-                    onClick={handleClose2}
-                    component={Link}
-                    to='/ballroomdresses'
+                    classes={{ root: classes.dropdownItemLang }}
+                    value='en'
+                    onClick={(e) => {
+                      handleCloseLang(e);
+                      setLang('en');
+                    }}
                   >
                     EN
                   </MenuItem>
                   <MenuItem
-                    classes={{ root: classes.dropdownItem2 }}
-                    onClick={handleClose2}
-                    component={Link}
-                    to='/latindresses'
+                    classes={{ root: classes.dropdownItemLang }}
+                    value='nl'
+                    onClick={(e) => {
+                      handleCloseLang(e);
+                      setLang('nl');
+                    }}
                   >
                     NL
                   </MenuItem>
@@ -472,41 +493,49 @@ const Header = ({ value, setValue }) => {
       >
         <div className={classes.toolbarMargin} />
         <List disablePadding>
-          {routes.map((route, i) => (
-            <ListItem
-              key={`${route.link}`}
-              disableRipple
-              onClick={() => {
-                setOpenDrawer(false);
-                setValue(i);
-              }}
-              divider
-              button
-              component={Link}
-              to={route.link}
-              className={
-                i === routes.length - 1
-                  ? classes.drawerBackgroundShop
-                  : i === value
-                  ? classes.drawerBackgroundSelected
-                  : classes.drawerBackground
-              }
-              selected={false}
-            >
-              <ListItemText
-                disableTypography
-                className={
-                  i === routes.length - 1
-                    ? classes.drawerItemShop
-                    : value === i
-                    ? classes.drawerItemSelected
-                    : classes.drawerItem
-                }
+          {drawerRoutes.map((route, i) =>
+            i === drawerRoutes.length - 1 ? (
+              <ListItem
+                key={`${route.link}`}
+                disableRipple
+                onClick={() => {
+                  setOpenDrawer(false);
+                  setValue(i);
+                  openShop();
+                }}
+                divider
+                button
+                className={classes.drawerBackgroundShop}
+                selected={false}
               >
-                {route.name}
-              </ListItemText>
-            </ListItem>
-          ))}
+                <ListItemText
+                  disableTypography
+                  className={classes.drawerItemShop}
+                >
+                  {route.name}
+                </ListItemText>
+              </ListItem>
+            ) : (
+              <ListItem
+                key={`${route.link}`}
+                disableRipple
+                onClick={() => {
+                  setOpenDrawer(false);
+                  setValue(i);
+                }}
+                divider
+                button
+                component={Link}
+                to={route.link}
+                className={classes.drawerBackground}
+                selected={false}
+              >
+                <ListItemText disableTypography className={classes.drawerItem}>
+                  {route.name}
+                </ListItemText>
+              </ListItem>
+            )
+          )}
         </List>
       </SwipeableDrawer>
       <Button
@@ -522,7 +551,7 @@ const Header = ({ value, setValue }) => {
         onClick={() => setOpenDrawer(!openDrawer)}
         disableRipple
       >
-        <MenuIcon className={classes.drawerIcon} />
+        <img src={MenuIcon} alt='menu-icon' className={classes.drawerIcon} />
       </IconButton>
     </Fragment>
   );
@@ -538,7 +567,7 @@ const Header = ({ value, setValue }) => {
                 className={classes.logoContainer}
                 component={Link}
                 to='/'
-                onClick={() => setValue(6)}
+                onClick={() => setValue(5)}
               >
                 <img
                   src={logoLight}
