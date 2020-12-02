@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const blue = '#00aaff';
+const blue = 'rgba(2,67,220,1)';
 const orange = '#ffba60';
 const white = 'rgba(255, 255, 250, 1)';
 
