@@ -277,7 +277,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
         className={classes.button}
         onClick={openShop}
       >
-        SHOP
+        {lang === 'nl' ? 'WEBSHOP' : 'SHOP'}
       </Button>
       <Tabs
         value={value}
@@ -299,7 +299,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
             key='dancecouture'
             className={value === 0 ? classes.tabSelected : classes.tab}
             style={{ paddingRight: 0 }}
-            label='dance couture'
+            label={lang === 'nl' ? 'Dansjurken' : 'dance couture'}
             component={Link}
             to='/dancecouture'
             disableRipple
@@ -311,7 +311,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
         <Tab
           key='wedding dresses'
           className={value === 1 ? classes.tabSelected : classes.tab}
-          label='wedding dresses'
+          label={lang === 'nl' ? 'Bruidsjurken' : 'wedding dresses'}
           component={Link}
           to='/wedding'
           disableRipple
@@ -319,7 +319,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
         <Tab
           key='custom tailoring'
           className={value === 2 ? classes.tabSelected : classes.tab}
-          label='custom tailoring'
+          label={lang === 'nl' ? 'Maatwerk' : 'custom tailoring'}
           component={Link}
           to='/custom'
           disableRipple
@@ -327,7 +327,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
         <Tab
           key='about us'
           className={value === 3 ? classes.tabSelected : classes.tab}
-          label='about us'
+          label={lang === 'nl' ? 'Over ons' : 'about us'}
           component={Link}
           to='/about'
           disableRipple
@@ -382,7 +382,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
                     component={Link}
                     to='/ballroomdresses'
                   >
-                    BALLROOM DRESSES
+                    {lang === 'nl' ? 'Ballroomjurken' : 'BALLROOM DRESSES'}
                   </MenuItem>
                   <MenuItem
                     classes={{ root: classes.dropdownItem }}
@@ -390,7 +390,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
                     component={Link}
                     to='/latindresses'
                   >
-                    LATIN DRESSES
+                    {lang === 'nl' ? 'Latinjurken' : 'LATINJURKEN'}
                   </MenuItem>
                   <MenuItem
                     classes={{ root: classes.dropdownItem }}
@@ -398,7 +398,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
                     component={Link}
                     to='/menswearlatin'
                   >
-                    MENSWEAR LATIN
+                    {lang === 'nl' ? 'Latin heren' : 'MENSWEAR LATIN'}
                   </MenuItem>
                   <MenuItem
                     classes={{ root: classes.dropdownItem }}
@@ -407,7 +407,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
                       openShop();
                     }}
                   >
-                    PRACTISE WEAR
+                    {lang === 'nl' ? 'Trainingskleding' : 'PRACTISE WEAR'}
                   </MenuItem>
                 </MenuList>
               </ClickAwayListener>
