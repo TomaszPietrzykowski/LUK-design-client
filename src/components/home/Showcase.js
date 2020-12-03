@@ -44,12 +44,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   para: {
+    ...theme.typography.sans,
+    fontSize: '1rem',
     color: 'white',
     maxWidth: '50%',
-    fontFamily: 'Source Sans Pro, serif',
-    fontSize: '1rem',
-    letterSpacing: 1,
-    lineHeight: 1.4,
     marginTop: '1rem',
     opacity: 0.7,
     [theme.breakpoints.down('md')]: {

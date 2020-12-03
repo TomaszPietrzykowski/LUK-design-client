@@ -176,18 +176,9 @@ const useStyles = makeStyles((theme) => ({
     padding: '.4rem 2rem .4rem 1rem',
     fontSize: 12,
   },
-  // drawerItemSelected: {
-  //   ...theme.typography.tab,
-  //   fontSize: 12,
-  //   padding: '.4rem 2rem .4rem 1rem',
-  //   color: 'rgba(2,67,220,.7)',
-  // },
   drawerBackground: {
     paddingRight: '3rem',
   },
-  // drawerBackgroundSelected: {
-  //   paddingRight: '3rem',
-  // },
   drawerBackgroundShop: {
     paddingRight: '3rem',
     backgroundColor: 'black',

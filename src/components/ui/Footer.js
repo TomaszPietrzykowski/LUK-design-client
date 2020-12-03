@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     padding: '2rem',
   },
   container: {
-    // border: '1px solid green',
     minHeight: 'inherit',
     ...theme.utils.container,
     display: 'flex',
@@ -25,19 +24,17 @@ const useStyles = makeStyles((theme) => ({
   },
 
   columns: {
-    // border: '1px solid blue',
     width: '100%',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
     },
   },
   c1: {
     flex: 1,
-    // border: '1px solid orange',
     minWidth: 270,
     display: 'flex',
     flexDirection: 'column',
@@ -54,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
   c2: {
     flex: 1,
     minWidth: 270,
-    // border: '1px solid orange',
     [theme.breakpoints.down('md')]: {
       order: 1,
     },
