@@ -3,14 +3,12 @@ import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import showcase from '../../assets/showcase02.jpg';
 import { Link } from 'react-router-dom';
-import { Parallax } from 'react-parallax';
 import BagIcon from '@material-ui/icons/LocalMallOutlined';
 
 const useStyles = makeStyles((theme) => ({
   showcase: {
     width: '100%',
     minHeight: '20vh',
-    // marginTop: '2.2rem',
     backgroundImage: `url(${showcase})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
