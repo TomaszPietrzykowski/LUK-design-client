@@ -15,6 +15,7 @@ import BallroomDresses from './components/pages/BallroomDresses';
 import LatinDresses from './components/pages/LatinDresses';
 import MenswearLatin from './components/pages/MenswearLatin';
 import Footer from './components/ui/Footer';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 function App() {
   const [value, setValue] = useState(0);
@@ -29,6 +30,11 @@ function App() {
             setValue={setValue}
             lang={lang}
             setLang={setLang}
+          />
+          <MessengerCustomerChat
+            pageId='107565754539924'
+            appId='849140772506827'
+            themeColor='#000000'
           />
           <Switch>
             <Route exact path='/' component={Home} />
