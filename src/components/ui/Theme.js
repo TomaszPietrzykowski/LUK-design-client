@@ -50,6 +50,20 @@ export default createMuiTheme({
       marginRight: 'auto',
     },
   },
+  flex: {
+    col: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    row: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  },
   breakpoints: {
     keys: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
     values: {

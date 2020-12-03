@@ -6,16 +6,17 @@ const useStyles = makeStyles((theme) => ({
   container: {
     ...theme.utils.container,
     marginTop: '8rem',
+    [theme.breakpoints.down('md')]: {
+      marginTop: '5rem',
+    },
     [theme.breakpoints.down('sm')]: {
       marginTop: '3rem',
     },
   },
   flexContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    ...theme.flex.row,
     [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
+      ...theme.flex.col,
     },
   },
   picture: {
@@ -26,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     [theme.breakpoints.down('sm')]: {
-      minHeight: '30vh',
       width: '90%',
       margin: 'auto',
       marginTop: '3rem',
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
       padding: '2rem',
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '0rem 2rem 0rem 2.6rem',
+      padding: '1.5rem 3rem',
       order: 1,
     },
   },
