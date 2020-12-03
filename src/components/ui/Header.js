@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '2.2rem',
     [theme.breakpoints.down('sm')]: {
       paddingBottom: 0,
+      marginBottom: 0,
     },
   },
   container: {
@@ -76,10 +77,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '.8rem .5rem',
     [theme.breakpoints.down('sm')]: {
       margin: '0rem',
-      height: '1.7rem',
-    },
-    [theme.breakpoints.down('xs')]: {
-      height: '1.5rem',
+      height: '3rem',
     },
   },
 

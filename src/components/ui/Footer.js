@@ -144,10 +144,20 @@ const Footer = () => {
           <div className={classes.social}>
             <div className={classes.socialHeader}>Follow us</div>
             <div className={classes.socialIcons}>
-              <div className={classes.facebook}>
+              <div
+                className={classes.facebook}
+                onClick={() =>
+                  window.open('https://www.facebook.com/designluk')
+                }
+              >
                 <img src={fb} alt='facebook link' className={classes.icon} />
               </div>
-              <div className={classes.instagram}>
+              <div
+                className={classes.instagram}
+                onClick={() =>
+                  window.open('https://www.instagram.com/design.luk/')
+                }
+              >
                 <img src={insta} alt='facebook link' className={classes.icon} />
               </div>
             </div>

@@ -10,41 +10,68 @@ const useStyles = makeStyles((theme) => ({
   showcase: {
     width: '100%',
     minHeight: '20vh',
-    // backgroundColor: 'steelblue',
-    // backgroundImage: `url(${showcase})`,
-    // backgroundSize: 'cover',
-    // backgroundPosition: 'center',
-    marginTop: '2.2rem',
+    // marginTop: '2.2rem',
+    backgroundImage: `url(${showcase})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
   },
   container: {
     ...theme.utils.container,
-    // border: '1px solid black',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
     minHeight: 'inherit',
     padding: '10rem',
-    paddingBottom: '8rem',
+    [theme.breakpoints.down('md')]: {
+      padding: '6rem 4rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: '5rem 3rem 3rem 3rem',
+    },
   },
   slogan: {
     ...theme.typography.serif,
-    fontSize: 60,
+    maxWidth: '70%',
+    fontSize: 48,
     color: 'white',
-    paddingTop: '8rem',
+    [theme.breakpoints.down('md')]: {
+      fontSize: 38,
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 28,
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 24,
+    },
   },
   para: {
     color: 'white',
+    maxWidth: '50%',
     fontFamily: 'Source Sans Pro, serif',
     fontSize: '1rem',
     letterSpacing: 1,
     lineHeight: 1.4,
     marginTop: '1rem',
     opacity: 0.7,
+    [theme.breakpoints.down('md')]: {
+      fontSize: 12,
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 10,
+      maxWidth: '65%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 9,
+    },
   },
   btnContainer: {
     display: 'flex',
     marginTop: '2.2rem',
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+      marginTop: '1.2rem',
+    },
   },
   btnPrimary: {
     ...theme.typography.tab,
@@ -54,21 +81,36 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 4,
     background: theme.palette.common.gradient1,
     color: 'white',
-    padding: '.25rem 3rem .2rem 2.5rem',
+    padding: '.6rem 3rem .5rem 3rem',
     fontSize: 12,
     fontWeight: 'bold',
     fontFamily: 'Josefin Sans',
-    // border: '1px solid white',
     transition: 'opacity .15s ease-out',
     cursor: 'pointer',
     '&:hover': {
       opacity: 0.9,
+    },
+    [theme.breakpoints.down('md')]: {
+      marginBottom: '1.2rem',
+      marginRight: 'auto',
+      padding: '.5rem 2rem .4rem 2rem',
+      fontSize: 10,
+    },
+    [theme.breakpoints.down('md')]: {
+      marginBottom: '1.2rem',
+      marginRight: 'auto',
+      padding: '.5rem 1rem .4rem 1rem',
+      fontSize: 9,
     },
   },
   bagIcon: {
     fontSize: '1.2rem',
     marginBottom: 5,
     marginRight: '.6rem',
+    [theme.breakpoints.down('md')]: {
+      fontSize: 14,
+      marginBottom: 2,
+    },
   },
   btnSecondary: {
     ...theme.typography.tab,
@@ -86,48 +128,52 @@ const useStyles = makeStyles((theme) => ({
       background: 'none',
       opacity: 0.85,
     },
+    [theme.breakpoints.down('md')]: {
+      marginLeft: 0,
+      marginRight: 'auto',
+      padding: '.5rem 1.6rem .4rem 1.6rem',
+      fontSize: 9,
+    },
   },
 }));
 
 const Showcase = () => {
   const classes = useStyles();
   return (
-    <Parallax bgImage={showcase} strength={300}>
-      <div className={classes.showcase}>
-        <div className={classes.container}>
-          <h1 className={classes.slogan}>
-            Dancewear tailored
-            <br /> to your talent
-          </h1>
-          <p className={classes.para}>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem{' '}
-            <br />
-            accusantium doloremque laudantium, totam rem aperiam, eaque. <br />{' '}
-            Perspiciatis unde omnis iste natus.
-          </p>
-          <div className={classes.btnContainer}>
-            <div
-              className={classes.btnPrimary}
-              onClick={() => {
-                window.open('https://www.shopify.com');
-              }}
-            >
-              <BagIcon className={classes.bagIcon} />
-              <span>shop online</span>
-            </div>
-            <Button
-              variant='contained'
-              color='primary'
-              className={classes.btnSecondary}
-              component={Link}
-              to='/contact'
-            >
-              FREE ESTIMATE
-            </Button>
+    // <Parallax bgImage={showcase} strength={300}>
+    <div className={classes.showcase}>
+      <div className={classes.container}>
+        <h1 className={classes.slogan}>
+          Dancewear tailored
+          <br /> to your talent
+        </h1>
+        <p className={classes.para}>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque.
+        </p>
+        <div className={classes.btnContainer}>
+          <div
+            className={classes.btnPrimary}
+            onClick={() => {
+              window.open('https://www.shopify.com');
+            }}
+          >
+            <BagIcon className={classes.bagIcon} />
+            <span>shop online</span>
           </div>
+          <Button
+            variant='contained'
+            color='primary'
+            className={classes.btnSecondary}
+            component={Link}
+            to='/contact'
+          >
+            get in touch
+          </Button>
         </div>
       </div>
-    </Parallax>
+    </div>
+    // </Parallax>
   );
 };
 

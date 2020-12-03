@@ -32,7 +32,6 @@ export default createMuiTheme({
     serif: {
       fontFamily: 'Source Serif Pro, serif',
       fontWeight: 400,
-      fontStyle: 'italic',
       letterSpacing: 2,
       lineHeight: 1.15,
     },
@@ -51,7 +50,7 @@ export default createMuiTheme({
       xxs: 0,
       xs: 360,
       sm: 410,
-      md: 600,
+      md: 650,
       lg: 1150,
       xl: 1300,
     },
