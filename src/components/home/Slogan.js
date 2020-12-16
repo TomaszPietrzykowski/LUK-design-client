@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   header: {
-    ...theme.typography.serif,
+    ...theme.typography.mont,
     fontSize: 36,
     marginBottom: '2rem',
     position: 'relative',
@@ -74,9 +74,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   para: {
-    ...theme.typography.sans,
+    ...theme.typography.mont,
     maxWidth: '90%',
     opacity: 0.8,
+    lineHeight: 1.5,
     [theme.breakpoints.down('md')]: {
       fontSize: 14,
     },
