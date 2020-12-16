@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import DancewearTeaser from '../home/DancewearTeaser';
-import Showcase from '../home/Showcase';
+import Showcase from '../home/ShowcaseAlt';
 import Slogan from '../home/Slogan';
 
 const Home = () => {

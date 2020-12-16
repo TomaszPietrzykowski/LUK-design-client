@@ -20,7 +20,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import logoLight from '../../assets/RGB/Logotyp_White.png';
+import logoLight from '../../assets/logowhite.svg';
 import {
   ClickAwayListener,
   Grow,
@@ -390,7 +390,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
                     component={Link}
                     to='/latindresses'
                   >
-                    {lang === 'nl' ? 'Latinjurken' : 'LATINJURKEN'}
+                    {lang === 'nl' ? 'Latinjurken' : 'Latin dresses'}
                   </MenuItem>
                   <MenuItem
                     classes={{ root: classes.dropdownItem }}

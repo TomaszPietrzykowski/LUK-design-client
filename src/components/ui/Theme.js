@@ -41,6 +41,12 @@ export default createMuiTheme({
       letterSpacing: 1,
       lineHeight: 1.4,
     },
+    mont: {
+      fontFamily: 'Montserrat, sans-serif',
+      fontWeight: 400,
+      letterSpacing: 2,
+      lineHeight: 1.4,
+    },
   },
   utils: {
     container: {
