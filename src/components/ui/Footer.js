@@ -138,7 +138,7 @@ const useStyles = makeStyles((theme) => ({
   li: {
     ...theme.typography.tab,
     fontSize: 11,
-    padding: '.8rem 1rem',
+    padding: '1rem',
     cursor: 'pointer',
     textDecoration: 'none',
     color: 'white',
@@ -175,7 +175,7 @@ const Footer = () => {
             />
             <div className={classes.contact}>
               <div className={classes.contactItem}>
-                mail@lukdesignatelier.com
+                luk@lukdesignatelier.com
               </div>
               <div className={classes.contactItem}>Nameofthestraat 123</div>
               <div className={classes.contactItem}>123 XY Amsterdam</div>

@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
     ...theme.flex.col,
   },
   header: {
-    ...theme.typography.serif,
+    ...theme.typography.mont,
     margin: '3rem',
-    fontSize: 36,
+    fontSize: 42,
     position: 'relative',
     '&::before': {
       content: "''",
@@ -35,15 +35,16 @@ const useStyles = makeStyles((theme) => ({
       height: 2,
       width: 65,
       backgroundColor: theme.palette.common.blue,
+      opacity: 0.3,
       [theme.breakpoints.down('md')]: {
         left: -70,
         height: 2,
         width: 50,
       },
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         left: -50,
         height: 1,
-        width: 35,
+        width: 30,
       },
     },
     '&::after': {
@@ -54,35 +55,26 @@ const useStyles = makeStyles((theme) => ({
       height: 2,
       width: 65,
       backgroundColor: theme.palette.common.blue,
+      opacity: 0.3,
       [theme.breakpoints.down('md')]: {
         right: -70,
         height: 2,
         width: 50,
       },
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         right: -50,
         height: 1,
-        width: 35,
+        width: 30,
       },
     },
     [theme.breakpoints.down('md')]: {
-      fontSize: 26,
-    },
-    [theme.breakpoints.down('xs')]: {
-      fontSize: 22,
-    },
-  },
-  para: {
-    ...theme.typography.sans,
-    textAlign: 'center',
-    maxWidth: '70%',
-    margin: 'auto',
-    pading: '2rem',
-    [theme.breakpoints.down('md')]: {
-      fontSize: 14,
+      fontSize: 36,
     },
     [theme.breakpoints.down('sm')]: {
-      maxWidth: '90%',
+      fontSize: 28,
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 24,
     },
   },
   tabsContainer: {
@@ -90,11 +82,14 @@ const useStyles = makeStyles((theme) => ({
     ...theme.flex.row,
     flexWrap: 'wrap',
     color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 0,
+    },
   },
   tab: {
-    width: 280,
-    height: 280,
-    margin: '2rem',
+    width: 300,
+    height: 300,
+    margin: '1.5rem',
     background: 'steelblue',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -139,11 +134,12 @@ const useStyles = makeStyles((theme) => ({
     ...theme.flex.col,
     margin: 6,
     border: '1px solid white',
-    height: 268,
-    width: 268,
+    height: 288,
+    width: 288,
   },
   tabContent: {
-    ...theme.typography.serif,
+    ...theme.typography.mont,
+    textTransform: 'uppercase',
     fontSize: '1.4rem',
     letterSpacing: 3,
     textAlign: 'center',
@@ -175,12 +171,12 @@ const DancewearTeaser = () => {
     <div className={classes.container}>
       <div className={classes.flexContainer}>
         <div className={classes.header}>Dance couture</div>
-        <div className={classes.para}>
+        {/* <div className={classes.para}>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
           ab illo inventore veritatis et quasi architecto beatae vitae dicta
           sunt explicabo.
-        </div>
+        </div> */}
         <div className={classes.tabsContainer}>
           <Link
             className={classes.tab}

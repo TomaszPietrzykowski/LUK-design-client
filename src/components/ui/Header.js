@@ -68,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       paddingLeft: '1rem',
     },
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: 0,
+    },
     '&:hover': {
       backgroundColor: 'white',
     },
@@ -76,8 +79,8 @@ const useStyles = makeStyles((theme) => ({
     height: '4.5rem',
     margin: '.8rem .5rem',
     [theme.breakpoints.down('sm')]: {
-      margin: '0rem',
-      height: '3rem',
+      margin: '.5rem',
+      height: '4rem',
     },
   },
 

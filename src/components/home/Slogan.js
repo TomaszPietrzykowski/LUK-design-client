@@ -40,13 +40,13 @@ const useStyles = makeStyles((theme) => ({
       padding: '2rem',
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '1.5rem 3rem',
+      padding: '1.5rem',
       order: 1,
     },
   },
   header: {
     ...theme.typography.mont,
-    fontSize: 36,
+    fontSize: 42,
     marginBottom: '2rem',
     position: 'relative',
     '&::before': {
@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
       height: 2,
       width: 75,
       backgroundColor: theme.palette.common.blue,
+      opacity: 0.3,
       [theme.breakpoints.down('md')]: {
         width: 60,
       },
@@ -67,10 +68,13 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     [theme.breakpoints.down('md')]: {
-      fontSize: 26,
+      fontSize: 36,
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 28,
     },
     [theme.breakpoints.down('xs')]: {
-      fontSize: 22,
+      fontSize: 26,
     },
   },
   para: {
@@ -80,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.5,
     [theme.breakpoints.down('md')]: {
       fontSize: 14,
+      maxWidth: '100%',
     },
   },
 }));

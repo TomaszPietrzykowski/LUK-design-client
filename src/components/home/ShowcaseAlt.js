@@ -1,11 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import showcase from '../../assets/showcasealt.jpg';
 import logoTrans from '../../assets/logo-trans-white.png';
-import { Link } from 'react-router-dom';
-import BagIcon from '@material-ui/icons/LocalMallOutlined';
-import { Parallax, Background } from 'react-parallax';
+// import { Link } from 'react-router-dom';
+// import BagIcon from '@material-ui/icons/LocalMallOutlined';
+import { Parallax } from 'react-parallax';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -86,7 +86,7 @@ const Showcase = () => {
         <div className={classes.container}>
           <img src={logoTrans} alt='logo' className={classes.logo} />
           <div className={classes.infoContainer}>
-            <div className={classes.infoEl}>Dance couture</div>
+            <div className={classes.infoEl}>{'Dance couture'}</div>
             <div className={classes.sep}> | </div>
             <div className={classes.sepV} />
             <div className={classes.infoEl}>Wedding dresses</div>
