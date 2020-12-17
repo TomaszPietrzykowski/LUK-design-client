@@ -223,7 +223,7 @@ const Footer = () => {
               </Link>
               <li
                 className={classes.li}
-                onClick={() => window.open('https://shopify.com')}
+                onClick={() => window.open('https://shop.lukdesignatelier.com')}
               >
                 Webshop
               </li>
