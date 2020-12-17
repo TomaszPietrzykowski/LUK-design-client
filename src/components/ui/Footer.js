@@ -82,8 +82,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   socialHeader: {
-    ...theme.typography.serif,
-    fontSize: '2rem',
+    ...theme.typography.mont,
+    letterSpacing: 1,
+    fontSize: '1.6rem',
     paddingBottom: '1rem',
     marginBottom: '1rem',
   },
@@ -113,8 +114,7 @@ const useStyles = makeStyles((theme) => ({
   },
   contact: {
     padding: '.4rem 1rem',
-    fontFamily: 'Source Sans Pro, sans',
-    letterSpacing: 2,
+    ...theme.typography.mont,
     fontSize: 12,
     [theme.breakpoints.down('md')]: {
       paddingLeft: 0,
@@ -127,7 +127,6 @@ const useStyles = makeStyles((theme) => ({
   ul: {
     margin: '2rem',
     listStyle: 'none',
-    // borderLeft: `1px solid rgba(255,255,255,.6)`,
     [theme.breakpoints.down('md')]: {
       margin: 0,
     },
@@ -227,7 +226,7 @@ const Footer = () => {
               >
                 Webshop
               </li>
-              <li className={classes.li}>Site Language</li>
+              {/* <li className={classes.li}>Site Language</li> */}
             </ul>
           </div>
           <div className={classes.social}>

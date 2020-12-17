@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-end',
     [theme.breakpoints.down('sm')]: {
       ...theme.flex.col,
-      marginTop: '4rem',
+      marginTop: '3rem',
     },
   },
   picture: {
@@ -101,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
   btnWhite: {
     fontFamily: 'Montserrat, sans-serif',
     border: '1px solid white',
-    padding: '.5rem 1.5rem',
+    padding: '.7rem 1.8rem',
     textTransform: 'uppercase',
     cursor: 'pointer',
     marginTop: '3rem',
@@ -133,7 +133,7 @@ const WeddingTeaser = () => {
             to='/wedding'
             style={{ textDecoration: 'none', color: 'white' }}
           >
-            <div className={classes.btnWhite}>read more</div>
+            <div className={classes.btnWhite}>read&nbsp;more</div>
           </Link>
         </div>
       </div>

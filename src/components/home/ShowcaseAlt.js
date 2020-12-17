@@ -1,10 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-// import Button from '@material-ui/core/Button';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import showcase from '../../assets/custom04.jpg';
 import logoTrans from '../../assets/logo-trans-white.png';
-// import { Link } from 'react-router-dom';
-// import BagIcon from '@material-ui/icons/LocalMallOutlined';
 import { Parallax } from 'react-parallax';
 
 const useStyles = makeStyles((theme) => ({
@@ -75,6 +74,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Showcase = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
   return (
     <div style={{ backgroundColor: 'rgba(0,0,0,1)' }}>
       <Parallax
@@ -82,6 +83,7 @@ const Showcase = () => {
         bgImageStyle={{ opacity: '.75' }}
         bgImageAlt='luk design showcase'
         strength={300}
+        disabled={matches}
       >
         <div className={classes.container}>
           <img src={logoTrans} alt='logo' className={classes.logo} />

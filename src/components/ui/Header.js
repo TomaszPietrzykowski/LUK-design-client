@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '2.1rem',
     [theme.breakpoints.down('sm')]: {
       paddingBottom: 0,
-      marginBottom: 0,
+      marginBottom: '1.2rem',
     },
   },
   container: {
@@ -102,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     ...theme.typography.tab,
     borderRadius: '4px',
-    background: theme.palette.common.gradient1,
+    background: theme.palette.common.gradient2,
     color: 'white',
     paddingBottom: '0.2rem',
     paddingLeft: '1.2rem',
@@ -245,7 +245,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
   };
 
   const openShop = () => {
-    window.open('https://www.shop.lukdesignatelier.com');
+    window.open('https://shop.lukdesignatelier.com');
   };
 
   useEffect(() => {
