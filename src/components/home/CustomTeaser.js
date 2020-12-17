@@ -1,59 +1,59 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import wedding from '../../assets/wedding01.jpg';
+import custom from '../../assets/custom02.jpg';
+import customM from '../../assets/custommobile.jpg';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: '12rem',
-    ...theme.flex.row,
-    alignItems: 'flex-end',
-    [theme.breakpoints.down('sm')]: {
-      ...theme.flex.col,
-      marginTop: '4rem',
-    },
-  },
-  picture: {
-    flex: 1,
-    minHeight: 800,
-    backgroundImage: `url(${wedding})`,
+    width: '100%',
+    backgroundImage: `url(${custom})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    [theme.breakpoints.down('md')]: {
-      minHeight: 700,
-    },
     [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      minHeight: 400,
-      margin: 0,
-      order: 1,
+      marginTop: 0,
     },
   },
-  contentContainer: {
-    flex: 1,
+  container: {
+    ...theme.utils.container,
     ...theme.flex.row,
-    justifyContent: 'flex-end',
     [theme.breakpoints.down('sm')]: {
-      margin: 0,
+      ...theme.flex.col,
+    },
+  },
+  empty: {
+    flex: 1,
+    width: '50%',
+    minHeight: 30,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      backgroundImage: `url(${customM})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      minHeight: 600,
       order: 2,
     },
   },
   content: {
-    color: 'white',
-    background: 'rgb(68, 152, 213)',
-    padding: '6rem 5rem 5rem 5rem',
-    maxWidth: 700,
+    flex: 1,
     ...theme.flex.col,
     alignItems: 'flex-start',
-    margin: '4rem -3rem 4rem auto',
-    zIndex: 2,
+    width: '50%',
+    color: 'white',
+    margin: '8rem 0rem',
+    padding: '6rem 5rem 5rem 5rem ',
+    paddingRight: '1rem',
     [theme.breakpoints.down('md')]: {
-      padding: '4rem',
+      padding: '1rem',
     },
     [theme.breakpoints.down('sm')]: {
+      width: '100%',
       padding: '4rem 2rem',
       margin: 0,
+      background: 'black',
     },
   },
   header: {
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       height: 2,
       width: 75,
-      backgroundColor: 'white',
+      backgroundColor: theme.palette.common.lightBlue,
       opacity: 1,
       [theme.breakpoints.down('md')]: {
         width: 60,
@@ -110,18 +110,20 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: 'black',
       border: '1px solid black',
-      boxShadow: '0px 0px 4px rgba(255,255,255,.8)',
+      boxShadow: '0px 0px 3px rgba(255,255,255,.3)',
     },
   },
 }));
 
-const WeddingTeaser = () => {
+const CustomTeaser = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
-      <div className={classes.contentContainer}>
+      <div className={classes.container}>
+        <div className={classes.empty}></div>
         <div className={classes.content}>
-          <div className={classes.header}>Wedding dresses</div>
+          <div className={classes.header}>Custom tailoring</div>
           <div className={classes.para}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -137,9 +139,8 @@ const WeddingTeaser = () => {
           </Link>
         </div>
       </div>
-      <div className={classes.picture}></div>
     </div>
   );
 };
 
-export default WeddingTeaser;
+export default CustomTeaser;

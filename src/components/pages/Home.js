@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import CustomTeaser from '../home/CustomTeaser';
 import DancewearTeaser from '../home/DancewearTeaser';
 import Showcase from '../home/ShowcaseAlt';
 import Slogan from '../home/Slogan';
@@ -11,6 +12,7 @@ const Home = () => {
       <Slogan />
       <DancewearTeaser />
       <WeddingTeaser />
+      <CustomTeaser />
       <div
         style={{
           minHeight: '80vh',

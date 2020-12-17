@@ -34,17 +34,16 @@ const useStyles = makeStyles((theme) => ({
       left: -100,
       height: 2,
       width: 65,
-      backgroundColor: theme.palette.common.blue,
-      opacity: 0.3,
+      backgroundColor: theme.palette.common.lightBlue,
       [theme.breakpoints.down('md')]: {
-        left: -70,
+        left: -60,
         height: 2,
-        width: 50,
+        width: 40,
       },
       [theme.breakpoints.down('sm')]: {
-        left: -50,
+        left: -40,
         height: 1,
-        width: 30,
+        width: 25,
       },
     },
     '&::after': {
@@ -54,17 +53,16 @@ const useStyles = makeStyles((theme) => ({
       right: -100,
       height: 2,
       width: 65,
-      backgroundColor: theme.palette.common.blue,
-      opacity: 0.3,
+      backgroundColor: theme.palette.common.lightBlue,
       [theme.breakpoints.down('md')]: {
-        right: -70,
+        right: -60,
         height: 2,
-        width: 50,
+        width: 40,
       },
       [theme.breakpoints.down('sm')]: {
-        right: -50,
+        right: -40,
         height: 1,
-        width: 30,
+        width: 25,
       },
     },
     [theme.breakpoints.down('md')]: {
@@ -72,9 +70,11 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('sm')]: {
       fontSize: 28,
+      margin: '3rem 2rem',
     },
     [theme.breakpoints.down('xs')]: {
-      fontSize: 24,
+      fontSize: 22,
+      margin: '3rem 1rem',
     },
   },
   tabsContainer: {
@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: 'rgba(0,0,0,.5)',
     },
     [theme.breakpoints.down('sm')]: {
-      margin: '1rem',
+      margin: 0,
     },
     '&:hover': {
       '&::before': {
@@ -152,7 +152,6 @@ const useStyles = makeStyles((theme) => ({
       bottom: 0,
       height: '1px',
       width: '60%',
-      borderBottom: '1px solid rgba(255,255,255,.6)',
       [theme.breakpoints.down('sm')]: {
         opacity: 0,
       },

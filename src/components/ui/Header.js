@@ -245,7 +245,7 @@ const Header = ({ value, setValue, lang, setLang }) => {
   };
 
   const openShop = () => {
-    window.open('https://www.shopify.com');
+    window.open('https://www.shop.lukdesignatelier.com');
   };
 
   useEffect(() => {

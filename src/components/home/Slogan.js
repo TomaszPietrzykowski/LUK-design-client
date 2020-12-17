@@ -56,8 +56,7 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       height: 2,
       width: 75,
-      backgroundColor: theme.palette.common.blue,
-      opacity: 0.3,
+      backgroundColor: theme.palette.common.lightBlue,
       [theme.breakpoints.down('md')]: {
         width: 60,
       },

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 // import Button from '@material-ui/core/Button';
-import showcase from '../../assets/showcasealt.jpg';
+import showcase from '../../assets/custom04.jpg';
 import logoTrans from '../../assets/logo-trans-white.png';
 // import { Link } from 'react-router-dom';
 // import BagIcon from '@material-ui/icons/LocalMallOutlined';

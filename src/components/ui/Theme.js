@@ -3,11 +3,13 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const blue = 'rgba(2,67,220,1)';
 const orange = '#ffba60';
 const white = 'rgba(255, 255, 250, 1)';
+const lightBlue = 'rgb(68, 152, 213)';
 
 export default createMuiTheme({
   palette: {
     common: {
       blue: `${blue}`,
+      lightBlue: `${lightBlue}`,
       orange: `${orange}`,
       footer: `${white}`,
       gradient1:
